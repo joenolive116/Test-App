@@ -56,6 +56,7 @@ button {
 }
 
 .result-card {
+    display: none;
     margin-top: 28px;
     padding: 20px;
     border-radius: 16px;
