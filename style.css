@@ -111,3 +111,12 @@ button {
     text-align: center;
     font-weight: bold;
 }
+
+.metric.loss strong {
+    color: #dc2626;
+}
+
+.highlight {
+    background: #ecfdf5;
+    color: #065f46;
+}
