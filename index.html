@@ -25,24 +25,29 @@
     <script>
         function calculateROI() {
 
-    let calls = Number(document.getElementById("calls").value);
-    let missed = Number(document.getElementById("missed").value);
-    let value = Number(document.getElementById("value").value);
-
-    let missedCalls = calls * (missed / 100);
-
-    // Assume 30% of missed callers would become patients
-    let lostPatients = missedCalls * 0.30;
-
-    let lostRevenue = lostPatients * value;
-
-    document.getElementById("result").innerHTML =
-        `
-        Missed Calls: ${Math.round(missedCalls)}<br>
-        Potential Patients Lost: ${Math.round(lostPatients)}<br>
-        Estimated Revenue Lost: $${lostRevenue.toLocaleString()}
-        `;
-}
+            let calls = Number(document.getElementById("calls").value);
+            let missed = Number(document.getElementById("missed").value);
+            let value = Number(document.getElementById("value").value);
+        
+            let missedCalls = calls * (missed / 100);
+        
+            let lostPatients = missedCalls * 0.30;
+        
+            let lostRevenue = lostPatients * value;
+        
+            let recoveredRevenue = lostRevenue * 0.70;
+        
+            document.getElementById("result").innerHTML =
+                `
+                <strong>Missed Calls:</strong> ${Math.round(missedCalls)}<br>
+                <strong>Potential Patients Lost:</strong> ${Math.round(lostPatients)}<br>
+                <strong>Estimated Revenue Lost:</strong> $${lostRevenue.toLocaleString()}<br><br>
+        
+                <strong>Revenue Potential Recovered with Newton:</strong><br>
+                $${recoveredRevenue.toLocaleString()}
+                `;
+        }
+   
     </script>
 
 </body>
