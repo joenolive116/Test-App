@@ -39,12 +39,27 @@
         
             document.getElementById("result").innerHTML =
                 `
-                <strong>Missed Calls:</strong> ${Math.round(missedCalls)}<br>
-                <strong>Potential Patients Lost:</strong> ${Math.round(lostPatients)}<br>
-                <strong>Estimated Revenue Lost:</strong> $${lostRevenue.toLocaleString()}<br><br>
-        
-                <strong>Revenue Potential Recovered with Newton:</strong><br>
-                $${recoveredRevenue.toLocaleString()}
+                <h3>ROI Estimate</h3>
+            
+                <div class="metric">
+                    <span>Missed Calls</span>
+                    <strong>${Math.round(missedCalls)}</strong>
+                </div>
+            
+                <div class="metric">
+                    <span>Potential Patients Lost</span>
+                    <strong>${Math.round(lostPatients)}</strong>
+                </div>
+            
+                <div class="metric">
+                    <span>Estimated Revenue Lost</span>
+                    <strong>$${lostRevenue.toLocaleString()}</strong>
+                </div>
+            
+                <div class="highlight">
+                    <span>Revenue Potential Recovered with Newton</span>
+                    <strong>$${recoveredRevenue.toLocaleString()}</strong>
+                </div>
                 `;
         }
    
