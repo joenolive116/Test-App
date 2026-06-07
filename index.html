@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Newton ROI Calculator — for Dental Practices</title>
+  <meta name="description" content="See what Newton gives back to your dental practice. Estimate time saved, recovered revenue, and return on investment." />
+
+  <!-- Favicon: Newton symbol -->
+  <link rel="icon" type="image/svg+xml" href="assets/symbol-lime.svg" />
+
+  <!-- Fonts: Poppins (display) + Work Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Decorative background symbol -->
+  <div class="bg-symbol" aria-hidden="true">
+    <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M89.1844 248.221C80.2066 272.948 60.6386 337.19 95.2935 364.644C117.787 382.482 154.833 377.766 179.716 368.29V368.306C187.957 365.161 202.508 357.436 202.508 357.436L207.107 364.644C207.107 364.644 166.377 390.746 123.44 398.132C70.2467 407.286 43.6933 379.834 43.5596 379.695C14.7754 355.168 -0.274834 310.454 0.00379976 250.389V0.0796562H180.83L89.1844 248.221Z"/>
+      <path d="M276.581 1.8682C329.761 -7.28335 356.315 20.1537 356.461 20.3048H356.44C385.225 44.8321 400.275 89.5467 399.996 149.611V399.924H219.191L310.836 151.762C319.814 127.036 339.383 62.7902 304.727 35.3359C282.233 17.4978 245.187 22.217 220.305 31.6935C212.088 34.8296 197.6 42.5173 197.513 42.5636L192.913 35.3563C192.913 35.3563 233.643 9.2543 276.581 1.8682Z"/>
+    </svg>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Newton">
+      <svg class="brand-symbol" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M89.1844 248.221C80.2066 272.948 60.6386 337.19 95.2935 364.644C117.787 382.482 154.833 377.766 179.716 368.29V368.306C187.957 365.161 202.508 357.436 202.508 357.436L207.107 364.644C207.107 364.644 166.377 390.746 123.44 398.132C70.2467 407.286 43.6933 379.834 43.5596 379.695C14.7754 355.168 -0.274834 310.454 0.00379976 250.389V0.0796562H180.83L89.1844 248.221Z" fill="#DEF299"/>
+        <path d="M276.581 1.8682C329.761 -7.28335 356.315 20.1537 356.461 20.3048H356.44C385.225 44.8321 400.275 89.5467 399.996 149.611V399.924H219.191L310.836 151.762C319.814 127.036 339.383 62.7902 304.727 35.3359C282.233 17.4978 245.187 22.217 220.305 31.6935C212.088 34.8296 197.6 42.5173 197.513 42.5636L192.913 35.3563C192.913 35.3563 233.643 9.2543 276.581 1.8682Z" fill="#DEF299"/>
+      </svg>
+      <span class="brand-word">Newton</span>
+    </a>
+    <span class="header-tag">ROI Calculator</span>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <p class="eyebrow">For dental practices</p>
+    <h1>See what Newton<br><span class="accent">gives back</span> to your practice.</h1>
+    <p class="hero-sub">Adjust the numbers below to match your front office. We'll estimate the staff hours you reclaim and the revenue Newton helps you recover every month.</p>
+  </section>
+
+  <!-- ============ APP ============ -->
+  <main class="app">
+
+    <!-- ----- INPUTS ----- -->
+    <section class="inputs" aria-label="Your practice numbers">
+
+      <!-- Practice basics -->
+      <div class="panel">
+        <div class="panel-head">
+          <span class="panel-num">01</span>
+          <div>
+            <h2>Your practice</h2>
+            <p>The basics about your front office.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="locations">Locations</label>
+          <div class="field-row">
+            <input type="range" id="locations-range" min="1" max="15" step="1" value="1" />
+            <div class="num-wrap">
+              <input type="number" id="locations" min="1" max="50" step="1" value="1" />
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="wage">Front-desk hourly cost <span class="hint">loaded wage</span></label>
+          <div class="field-row">
+            <input type="range" id="wage-range" min="15" max="60" step="1" value="26" />
+            <div class="num-wrap prefix">
+              <span class="affix">$</span>
+              <input type="number" id="wage" min="0" step="1" value="26" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Insurance verification -->
+      <div class="panel">
+        <div class="panel-head">
+          <span class="panel-num">02</span>
+          <div>
+            <h2>Insurance verification</h2>
+            <p>The breakdowns and benefits checks your team runs by hand.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="verifPerWeek">Verifications per week <span class="hint">per location</span></label>
+          <div class="field-row">
+            <input type="range" id="verifPerWeek-range" min="0" max="600" step="10" value="150" />
+            <div class="num-wrap">
+              <input type="number" id="verifPerWeek" min="0" step="1" value="150" />
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="minPerVerif">Minutes spent on each <span class="hint">manual</span></label>
+          <div class="field-row">
+            <input type="range" id="minPerVerif-range" min="2" max="30" step="1" value="12" />
+            <div class="num-wrap suffix">
+              <input type="number" id="minPerVerif" min="0" step="1" value="12" />
+              <span class="affix">min</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field assumption">
+          <label for="verifAuto">Share Newton automates <span class="hint">assumption</span></label>
+          <div class="field-row">
+            <input type="range" id="verifAuto-range" min="40" max="100" step="5" value="90" />
+            <div class="num-wrap suffix">
+              <input type="number" id="verifAuto" min="0" max="100" step="1" value="90" />
+              <span class="affix">%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phones & new patients -->
+      <div class="panel">
+        <div class="panel-head">
+          <span class="panel-num">03</span>
+          <div>
+            <h2>Phones &amp; new patients</h2>
+            <p>The calls slipping through — after hours, lunch, and overflow.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="callsPerWeek">Inbound calls per week <span class="hint">per location</span></label>
+          <div class="field-row">
+            <input type="range" id="callsPerWeek-range" min="0" max="800" step="10" value="180" />
+            <div class="num-wrap">
+              <input type="number" id="callsPerWeek" min="0" step="1" value="180" />
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="missedPct">Calls missed today <span class="hint">unanswered</span></label>
+          <div class="field-row">
+            <input type="range" id="missedPct-range" min="0" max="70" step="1" value="20" />
+            <div class="num-wrap suffix">
+              <input type="number" id="missedPct" min="0" max="100" step="1" value="20" />
+              <span class="affix">%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="newPatientValue">Value of a new patient <span class="hint">first-year production</span></label>
+          <div class="field-row">
+            <input type="range" id="newPatientValue-range" min="200" max="3000" step="50" value="900" />
+            <div class="num-wrap prefix">
+              <span class="affix">$</span>
+              <input type="number" id="newPatientValue" min="0" step="10" value="900" />
+            </div>
+          </div>
+        </div>
+
+        <div class="field assumption">
+          <label for="callConv">Missed calls Newton books <span class="hint">assumption</span></label>
+          <div class="field-row">
+            <input type="range" id="callConv-range" min="0" max="50" step="1" value="6" />
+            <div class="num-wrap suffix">
+              <input type="number" id="callConv" min="0" max="100" step="1" value="6" />
+              <span class="affix">%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- No-shows -->
+      <div class="panel">
+        <div class="panel-head">
+          <span class="panel-num">04</span>
+          <div>
+            <h2>No-shows &amp; reminders</h2>
+            <p>Empty chairs Newton's outbound reminders help you fill.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="apptsPerWeek">Appointments per week <span class="hint">per location</span></label>
+          <div class="field-row">
+            <input type="range" id="apptsPerWeek-range" min="0" max="500" step="5" value="130" />
+            <div class="num-wrap">
+              <input type="number" id="apptsPerWeek" min="0" step="1" value="130" />
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="noShowPct">No-show rate today</label>
+          <div class="field-row">
+            <input type="range" id="noShowPct-range" min="0" max="40" step="1" value="12" />
+            <div class="num-wrap suffix">
+              <input type="number" id="noShowPct" min="0" max="100" step="1" value="12" />
+              <span class="affix">%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="apptValue">Average appointment value</label>
+          <div class="field-row">
+            <input type="range" id="apptValue-range" min="80" max="1200" step="10" value="285" />
+            <div class="num-wrap prefix">
+              <span class="affix">$</span>
+              <input type="number" id="apptValue" min="0" step="5" value="285" />
+            </div>
+          </div>
+        </div>
+
+        <div class="field assumption">
+          <label for="noShowReduction">No-shows Newton prevents <span class="hint">assumption</span></label>
+          <div class="field-row">
+            <input type="range" id="noShowReduction-range" min="0" max="70" step="5" value="35" />
+            <div class="num-wrap suffix">
+              <input type="number" id="noShowReduction" min="0" max="100" step="1" value="35" />
+              <span class="affix">%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Newton cost -->
+      <div class="panel cost-panel">
+        <div class="panel-head">
+          <span class="panel-num">05</span>
+          <div>
+            <h2>Your Newton plan</h2>
+            <p>The "Everything" bundle — verification, phones, and outbound.</p>
+          </div>
+        </div>
+        <div class="field">
+          <label for="costPerLoc">Monthly cost per location</label>
+          <div class="field-row">
+            <input type="range" id="costPerLoc-range" min="0" max="2000" step="1" value="848" />
+            <div class="num-wrap prefix">
+              <span class="affix">$</span>
+              <input type="number" id="costPerLoc" min="0" step="1" value="848" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ----- RESULTS ----- -->
+    <aside class="results" aria-label="Your estimated return">
+      <div class="results-card">
+
+        <div class="result-hero">
+          <p class="result-label">Estimated net return</p>
+          <p class="result-big"><span class="prefix-sm">$</span><span id="netMonthly">0</span><span class="per">/mo</span></p>
+          <div class="multiple-pill" id="multiplePill">
+            <span id="roiMultiple">0×</span> return on spend
+          </div>
+        </div>
+
+        <div class="annual-strip">
+          <div class="annual-item">
+            <span class="ai-label">Per year</span>
+            <span class="ai-value" id="netAnnual">$0</span>
+          </div>
+          <div class="annual-item">
+            <span class="ai-label">Hours reclaimed / mo</span>
+            <span class="ai-value" id="hoursSaved">0</span>
+          </div>
+          <div class="annual-item">
+            <span class="ai-label">Payback</span>
+            <span class="ai-value" id="payback">—</span>
+          </div>
+        </div>
+
+        <div class="breakdown">
+          <h3>Where it comes from <span class="bd-sub">monthly</span></h3>
+
+          <div class="bd-row" data-key="labor">
+            <div class="bd-top">
+              <span class="bd-dot"></span>
+              <span class="bd-name">Staff time recovered</span>
+              <span class="bd-amt" id="amtLabor">$0</span>
+            </div>
+            <div class="bar"><span class="bar-fill" id="barLabor"></span></div>
+          </div>
+
+          <div class="bd-row" data-key="calls">
+            <div class="bd-top">
+              <span class="bd-dot"></span>
+              <span class="bd-name">Recovered missed calls</span>
+              <span class="bd-amt" id="amtCalls">$0</span>
+            </div>
+            <div class="bar"><span class="bar-fill" id="barCalls"></span></div>
+          </div>
+
+          <div class="bd-row" data-key="noshow">
+            <div class="bd-top">
+              <span class="bd-dot"></span>
+              <span class="bd-name">Prevented no-shows</span>
+              <span class="bd-amt" id="amtNoShow">$0</span>
+            </div>
+            <div class="bar"><span class="bar-fill" id="barNoShow"></span></div>
+          </div>
+
+          <div class="bd-divider"></div>
+
+          <div class="bd-row cost">
+            <div class="bd-top">
+              <span class="bd-dot"></span>
+              <span class="bd-name">Newton investment</span>
+              <span class="bd-amt" id="amtCost">$0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="compare">
+          <p class="compare-line">
+            That's <strong id="perDay">$0</strong> a day — versus roughly
+            <strong>$127/day</strong> for one more full-time front-desk hire.
+          </p>
+        </div>
+
+        <a class="cta" href="mailto:joe@joinnewton.com?subject=Newton%20ROI%20—%20let's%20talk">
+          Talk to Newton
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <p class="disclaimer">Estimates only, based on the inputs above and common dental front-office benchmarks. Actual results vary by practice. Adjust the assumption sliders to model your own numbers.</p>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <span>Newton — AI for dental front offices</span>
+    <span>joe@joinnewton.com</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
