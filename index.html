@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Newton ROI Calculator — Missed Calls for Dental Practices</title>
+  <meta name="description" content="See how much revenue your dental practice loses to missed calls — and how much Newton recovers." />
+  <link rel="icon" type="image/svg+xml" href="assets/symbol-lime.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-symbol" aria-hidden="true">
+    <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M89.1844 248.221C80.2066 272.948 60.6386 337.19 95.2935 364.644C117.787 382.482 154.833 377.766 179.716 368.29V368.306C187.957 365.161 202.508 357.436 202.508 357.436L207.107 364.644C207.107 364.644 166.377 390.746 123.44 398.132C70.2467 407.286 43.6933 379.834 43.5596 379.695C14.7754 355.168 -0.274834 310.454 0.00379976 250.389V0.0796562H180.83L89.1844 248.221Z"/>
+      <path d="M276.581 1.8682C329.761 -7.28335 356.315 20.1537 356.461 20.3048H356.44C385.225 44.8321 400.275 89.5467 399.996 149.611V399.924H219.191L310.836 151.762C319.814 127.036 339.383 62.7902 304.727 35.3359C282.233 17.4978 245.187 22.217 220.305 31.6935C212.088 34.8296 197.6 42.5173 197.513 42.5636L192.913 35.3563C192.913 35.3563 233.643 9.2543 276.581 1.8682Z"/>
+    </svg>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Newton">
+      <svg class="brand-symbol" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M89.1844 248.221C80.2066 272.948 60.6386 337.19 95.2935 364.644C117.787 382.482 154.833 377.766 179.716 368.29V368.306C187.957 365.161 202.508 357.436 202.508 357.436L207.107 364.644C207.107 364.644 166.377 390.746 123.44 398.132C70.2467 407.286 43.6933 379.834 43.5596 379.695C14.7754 355.168 -0.274834 310.454 0.00379976 250.389V0.0796562H180.83L89.1844 248.221Z" fill="#DEF299"/>
+        <path d="M276.581 1.8682C329.761 -7.28335 356.315 20.1537 356.461 20.3048H356.44C385.225 44.8321 400.275 89.5467 399.996 149.611V399.924H219.191L310.836 151.762C319.814 127.036 339.383 62.7902 304.727 35.3359C282.233 17.4978 245.187 22.217 220.305 31.6935C212.088 34.8296 197.6 42.5173 197.513 42.5636L192.913 35.3563C192.913 35.3563 233.643 9.2543 276.581 1.8682Z" fill="#DEF299"/>
+      </svg>
+      <span class="brand-word">Newton</span>
+    </a>
+    <span class="header-tag">ROI Calculator</span>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <p class="eyebrow">For dental practices</p>
+      <h1>How much is your practice<br><span class="accent">losing to missed calls?</span></h1>
+      <p class="hero-sub">Three quick numbers. We'll show you the revenue slipping away — and how much Newton brings back.</p>
+    </section>
+
+    <!-- INPUTS -->
+    <section class="card inputs">
+      <div class="q">
+        <div class="q-head">
+          <span class="q-num">1</span>
+          <label for="patients">Patients you see a day</label>
+          <span class="q-val"><span id="patients-out">25</span></span>
+        </div>
+        <input type="range" id="patients" min="5" max="80" step="1" value="25" />
+        <p class="q-foot">That's roughly <strong id="callsDay">38</strong> phone calls a day coming in.</p>
+      </div>
+
+      <div class="q">
+        <div class="q-head">
+          <span class="q-num">2</span>
+          <label for="missed">Calls you miss</label>
+          <span class="q-val"><span id="missed-out">20</span>%</span>
+        </div>
+        <input type="range" id="missed" min="0" max="60" step="1" value="20" />
+        <p class="q-foot">After hours, lunch breaks, and when the front desk is slammed.</p>
+      </div>
+
+      <div class="q">
+        <div class="q-head">
+          <span class="q-num">3</span>
+          <label for="value">Value of a patient</label>
+          <span class="q-val">$<span id="value-out">750</span></span>
+        </div>
+        <input type="range" id="value" min="100" max="3000" step="25" value="750" />
+        <p class="q-foot">First-year production for a new patient — or a returning one.</p>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="results">
+      <div class="res lost">
+        <p class="res-label">Lost to missed calls</p>
+        <p class="res-big"><span class="sm">$</span><span id="lostMo">0</span><span class="per">/mo</span></p>
+        <p class="res-sub"><span id="lostYr">$0</span> a year walking out the door</p>
+      </div>
+
+      <div class="res recovered">
+        <p class="res-label">Recovered with Newton</p>
+        <p class="res-big"><span class="sm">$</span><span id="recMo">0</span><span class="per">/mo</span></p>
+        <p class="res-sub"><span id="apptsSaved">0</span> appointments saved every month</p>
+      </div>
+
+      <div class="res roi">
+        <p class="res-label">Return on Newton</p>
+        <p class="res-big"><span id="roi">0</span><span class="x">×</span></p>
+        <p class="res-sub"><span id="net">$0</span>/mo net, after the $848 plan</p>
+      </div>
+    </section>
+
+    <!-- visual bar -->
+    <section class="card barcard">
+      <div class="bar-head">
+        <span>Of the revenue you're losing, Newton recaptures most of it.</span>
+      </div>
+      <div class="bigbar">
+        <span class="bigbar-rec" id="bigbarRec"></span>
+        <span class="bigbar-tag lost-tag">Still lost</span>
+        <span class="bigbar-tag rec-tag" id="recTag">Recovered</span>
+      </div>
+      <a class="cta" href="mailto:joe@joinnewton.com?subject=Newton%20—%20recovering%20our%20missed%20calls">
+        Stop the leak — talk to Newton
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </section>
+
+    <p class="disclaimer">Estimates based on your inputs and common dental front-office benchmarks: practices field about 1.5 calls per patient seen, are open ~21 days/month, and roughly 1 in 10 missed calls is a real, unrecoverable booking. Newton recaptures about 85% of those by answering 24/7. Adjust the sliders to model your own practice.</p>
+  </main>
+
+  <footer class="site-footer">
+    <span>Newton — AI for dental front offices</span>
+    <span>joe@joinnewton.com</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
