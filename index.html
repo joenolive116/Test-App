@@ -4,82 +4,129 @@
     <title>Newton ROI Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Newton ROI Calculator</h1>
-        <p>Estimate how much revenue a dental office may be losing from missed calls.</p>
-    
-        <label>Monthly Calls:</label><br>
-        <input id="calls" type="number" placeholder="Example: 1000"><br><br>
-    
-        <label>Missed Call Percentage:</label><br>
-        <input id="missed" type="number" placeholder="Example: 20"><br><br>
-    
-        <label>Average New Patient Value:</label><br>
-        <input id="value" type="number" placeholder="Example: 500"><br><br>
-    
-        <button onclick="calculateROI()">Calculate</button>
-    
-        <div id="result" class="result-card"></div>
+
+<div class="container">
+
+    <h1>Newton ROI Calculator</h1>
+
+    <p>
+        Estimate how much revenue a dental office may be losing from missed calls.
+    </p>
+
+    <label>Monthly Calls:</label>
+    <input id="calls" type="number" placeholder="Example: 1000">
+
+    <label>Missed Call Percentage:</label>
+    <input id="missed" type="number" placeholder="Example: 20">
+
+    <label>Average New Patient Value:</label>
+    <input id="value" type="number" placeholder="Example: 500">
+
+    <button onclick="calculateROI()">Calculate</button>
+
+    <button onclick="resetForm()" class="secondary">
+        Reset
+    </button>
+
+    <div id="result" class="result-card"></div>
+
+    <div class="footer">
+        Powered by Newton AI
     </div>
-    <script>
-        function calculateROI() {
 
-            let calls = Number(document.getElementById("calls").value);
-            let missed = Number(document.getElementById("missed").value);
-            let value = Number(document.getElementById("value").value);
-        
-            let missedCalls = calls * (missed / 100);
-        
-            let lostPatients = missedCalls * 0.30;
-        
-            let lostRevenue = lostPatients * value;
-        
-            let recoveredRevenue = lostRevenue * 0.70;
-            
-            let recommendation = "";
+</div>
 
-            if (lostRevenue < 10000) {
-                recommendation = "Moderate opportunity for automation.";
-            } else if (lostRevenue < 30000) {
-                recommendation = "Strong candidate for Newton.";
-            } else {
-                recommendation = "High-priority opportunity. Immediate ROI likely.";
-            }
-            
-            document.getElementById("result").style.display = "block";
+<script>
 
-            document.getElementById("result").innerHTML =
-            `
-            <h3>ROI Estimate</h3>
-            
-            <div class="metric">
-                <span>Missed Calls</span>
-                <strong>${Math.round(missedCalls)}</strong>
-            </div>
-            
-            <div class="metric">
-                <span>Potential Patients Lost</span>
-                <strong>${Math.round(lostPatients)}</strong>
-            </div>
-            
-            <div class="metric">
-                <span>Estimated Revenue Lost</span>
-                <strong>$${lostRevenue.toLocaleString()}</strong>
-            </div>
-            
-            <div class="highlight">
-                <span>Revenue Potential Recovered with Newton</span>
-                <strong>$${recoveredRevenue.toLocaleString()}</strong>
-            </div>
-            
-            <div class="recommendation">
-                ${recommendation}
-            </div>
-            `;
-        }
-   
-    </script>
+function calculateROI() {
+
+    let calls = Number(document.getElementById("calls").value);
+    let missed = Number(document.getElementById("missed").value);
+    let value = Number(document.getElementById("value").value);
+
+    let missedCalls = calls * (missed / 100);
+
+    let lostPatients = missedCalls * 0.30;
+
+    let lostRevenue = lostPatients * value;
+
+    let recoveredRevenue = lostRevenue * 0.70;
+
+    let monthlyNewtonCost = 599;
+
+    let roiMultiple =
+        (recoveredRevenue / monthlyNewtonCost).toFixed(1);
+
+    let recommendation = "";
+
+    if (lostRevenue < 10000) {
+        recommendation = "Bronze Opportunity";
+    }
+    else if (lostRevenue < 30000) {
+        recommendation = "Silver Opportunity";
+    }
+    else if (lostRevenue < 50000) {
+        recommendation = "Gold Opportunity";
+    }
+    else {
+        recommendation = "Platinum Opportunity";
+    }
+
+    document.getElementById("result").style.display = "block";
+
+    document.getElementById("result").innerHTML = `
+
+        <h3>ROI Estimate</h3>
+
+        <div class="metric">
+            <span>Missed Calls</span>
+            <strong>${Math.round(missedCalls)}</strong>
+        </div>
+
+        <div class="metric">
+            <span>Potential Patients Lost</span>
+            <strong>${Math.round(lostPatients)}</strong>
+        </div>
+
+        <div class="metric loss">
+            <span>Estimated Revenue Lost</span>
+            <strong>$${lostRevenue.toLocaleString()}</strong>
+        </div>
+
+        <div class="metric">
+            <span>Newton Monthly Cost</span>
+            <strong>$599</strong>
+        </div>
+
+        <div class="metric">
+            <span>Estimated ROI</span>
+            <strong>${roiMultiple}x</strong>
+        </div>
+
+        <div class="highlight">
+            <span>Revenue Potential Recovered with Newton</span>
+            <strong>$${recoveredRevenue.toLocaleString()}</strong>
+        </div>
+
+        <div class="recommendation">
+            ${recommendation}
+        </div>
+
+    `;
+}
+
+function resetForm() {
+
+    document.getElementById("calls").value = "";
+    document.getElementById("missed").value = "";
+    document.getElementById("value").value = "";
+
+    document.getElementById("result").style.display = "none";
+}
+
+</script>
 
 </body>
 </html>
