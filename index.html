@@ -5,23 +5,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <h1>Newton ROI Calculator</h1>
-    <p>Estimate how much revenue a dental office may be losing from missed calls.</p>
-
-    <label>Monthly Calls:</label><br>
-    <input id="calls" type="number" placeholder="Example: 1000"><br><br>
-
-    <label>Missed Call Percentage:</label><br>
-    <input id="missed" type="number" placeholder="Example: 20"><br><br>
-
-    <label>Average New Patient Value:</label><br>
-    <input id="value" type="number" placeholder="Example: 500"><br><br>
-
-    <button onclick="calculateROI()">Calculate</button>
-
-    <h2 id="result"></h2>
-
+    <div class="container">
+        <p>Estimate how much revenue a dental office may be losing from missed calls.</p>
+    
+        <label>Monthly Calls:</label><br>
+        <input id="calls" type="number" placeholder="Example: 1000"><br><br>
+    
+        <label>Missed Call Percentage:</label><br>
+        <input id="missed" type="number" placeholder="Example: 20"><br><br>
+    
+        <label>Average New Patient Value:</label><br>
+        <input id="value" type="number" placeholder="Example: 500"><br><br>
+    
+        <button onclick="calculateROI()">Calculate</button>
+    
+        <h2 id="result"></h2>
+    </div>
     <script>
         function calculateROI() {
             let calls = document.getElementById("calls").value;
