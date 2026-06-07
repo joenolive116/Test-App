@@ -101,3 +101,13 @@ button {
 .highlight strong {
     font-size: 24px;
 }
+
+.recommendation {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 10px;
+    background: #eff6ff;
+    color: #1e40af;
+    text-align: center;
+    font-weight: bold;
+}
