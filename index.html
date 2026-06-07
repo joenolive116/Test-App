@@ -23,16 +23,25 @@
     </div>
     <script>
         function calculateROI() {
-            let calls = document.getElementById("calls").value;
-            let missed = document.getElementById("missed").value;
-            let value = document.getElementById("value").value;
 
-            let missedCalls = calls * (missed / 100);
-            let potentialRevenue = missedCalls * value;
+    let calls = Number(document.getElementById("calls").value);
+    let missed = Number(document.getElementById("missed").value);
+    let value = Number(document.getElementById("value").value);
 
-            document.getElementById("result").innerHTML =
-                "Estimated lost revenue: $" + potentialRevenue.toLocaleString();
-        }
+    let missedCalls = calls * (missed / 100);
+
+    // Assume 30% of missed callers would become patients
+    let lostPatients = missedCalls * 0.30;
+
+    let lostRevenue = lostPatients * value;
+
+    document.getElementById("result").innerHTML =
+        `
+        Missed Calls: ${Math.round(missedCalls)}<br>
+        Potential Patients Lost: ${Math.round(lostPatients)}<br>
+        Estimated Revenue Lost: $${lostRevenue.toLocaleString()}
+        `;
+}
     </script>
 
 </body>
